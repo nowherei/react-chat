@@ -3,21 +3,22 @@ import Field from '../Field';
 
 import './Form.css';
 
-const Form = ({ title, fields, textButton, image, showLinks }) => {
-  const listFields = fields.map((props, index) => {
-    return <Field key={index + 1} {...props} />;
+const Form = ({ title, fields, textButton, image, links }) => {
+  const listFields = fields.map(({ id, ...rest }) => {
+    return <Field key={id} {...rest} />;
   });
 
   const header = image ? <img src={image} alt={title} /> : title;
 
-  const links = showLinks ? (
+  const listLinks = links ? (
     <div className="form__links">
-      <a href="#" className="form__links-forgot-password">
-        Забыли пароль?
-      </a>
-      <a href="#" className="form__links-auth">
-        Регистрация
-      </a>
+      {links.map(({ id, href, text, type }) => {
+        return (
+          <a key={id} href={href} className={`form__links-${type}`}>
+            {text}
+          </a>
+        );
+      })}
     </div>
   ) : (
     ''
@@ -32,7 +33,7 @@ const Form = ({ title, fields, textButton, image, showLinks }) => {
             <form action="#">
               {listFields}
               <button className="form__button">{textButton}</button>
-              {links}
+              {listLinks}
             </form>
           </div>
         </div>
