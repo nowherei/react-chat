@@ -1,0 +1,44 @@
+.form {
+  background: #D4D6F0;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  margin-top: 5rem;
+}
+
+.input {
+  background: #FFFFFF;
+  border: 1px solid #BABABA;
+  border-radius: 1rem;
+  width: 100%;
+  height: 8.5rem;
+  outline: none;
+  padding: 0 28rem 0 3rem;
+  color: #00041580;
+  font-size: 1.8rem;
+}
+
+.input::placeholder {
+  color: #00041580;
+}
+
+.button {
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(206.57deg, #6476F4 0%, #3246D3 83.33%);
+  border: 1.5px solid #FFFFFF;
+  border-radius: 10px;
+  color: #fff;
+  height: 6rem;
+  width: 24rem;
+  cursor: pointer;
+}
+
+.buttonText {
+  margin-left: 1.5rem;
+}

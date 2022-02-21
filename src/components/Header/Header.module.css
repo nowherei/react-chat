@@ -1,0 +1,53 @@
+.header {
+  background: linear-gradient(90.01deg, #2A8BF2 0.01%, #0A6CD6 99.99%);
+  color: #fff;
+  padding: 2rem 0;
+  font-size: 1.8rem;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: stretch;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+}
+
+.userImage {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+  cursor: pointer;
+}
+
+.buttonText {
+  margin-left: 1rem;
+}
+
+.exit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+  width: 24rem;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+}
+
+.exitText {
+  margin-right: 2rem;
+}

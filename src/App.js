@@ -1,11 +1,13 @@
 import './App.css';
-
-import Registration from './components/Registration';
+import PageSearch from './components/PageSearch';
+import PageChat from './components/PageChat';
 
 function App() {
+
   return (
     <main className="main">
-      <Registration />
+      <PageSearch />
+      <PageChat />
     </main>
   );
 }
