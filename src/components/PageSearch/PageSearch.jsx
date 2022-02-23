@@ -11,10 +11,12 @@ const PageSearch = () => {
   return (
     <>
       <Header user={user} button={button} />
-      <Container>
-        <ChatSearch />
-        <ChatList />
-      </Container>
+      <main className="main">
+        <Container>
+          <ChatSearch />
+          <ChatList type="chat" />
+        </Container>
+      </main>
     </>
   );
 };

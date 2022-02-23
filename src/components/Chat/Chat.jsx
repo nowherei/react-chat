@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatList from '../ChatList';
 import Container from '../Container';
 import Icon from '../Icon';
 
@@ -8,15 +9,21 @@ const Chat = () => {
   return (
     <Container>
       <div className={styles.wrapper}>
-        <div className={styles.chat}></div>
+        <div className={styles.chat}>
+          <ChatList type="message" />
+        </div>
         <form className={styles.form} action="">
           <div className={styles.field}>
-            <input type="text" className={styles.input} placeholder="Введите ваше сообщение" />
+            <input
+              type="text"
+              className={styles.input}
+              placeholder="Введите ваше сообщение"
+            />
             <div className={styles.control}>
-              <Icon name='emoji' />
-              <Icon name='attachment' />
+              <Icon name="emoji" />
+              <Icon name="attachment" />
               <button className={styles.buttonSend}>
-                <Icon name='send' />
+                <Icon name="send" />
               </button>
             </div>
           </div>

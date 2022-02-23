@@ -51,3 +51,15 @@
 .exitText {
   margin-right: 2rem;
 }
+
+@media (max-width: 575px) {
+  .buttonText,
+  .exitText {
+    display: none;
+  }
+
+  .exit {
+    border: none;
+    width: 6rem;
+  }
+}

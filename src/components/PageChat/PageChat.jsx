@@ -8,9 +8,11 @@ const PageChat = () => {
   return (
     <>
       <Header user={user} button={button} />
-      <Chat />
+      <main className="main">
+        <Chat />
+      </main>
     </>
   );
-}
+};
 
 export default PageChat;

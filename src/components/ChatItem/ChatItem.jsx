@@ -1,11 +1,22 @@
 import React from 'react';
 
 import styles from './ChatItem.module.css';
-import userImage from '../../images/user-2.png';
 
-const ChatItem = ({ name, image, text, date }) => {
+const ChatItem = ({ name, image, messages, date, type, direction }) => {
+  const flagName = name ? <div className={styles.name}>{name}</div> : '';
+
+  let className = styles.item;
+
+  if (type === 'message') {
+    className += ` ${styles.item_message}`;
+  }
+
+  if (direction === 'to' && styles.item_to) {
+    className += ` ${styles.item_to}`;
+  }
+
   return (
-    <div className={styles.item}>
+    <div className={className}>
       <div className={styles.preview}>
         <figure className={styles.imageWrapper}>
           <img src={image} alt={name} className={styles.image} />
@@ -13,8 +24,8 @@ const ChatItem = ({ name, image, text, date }) => {
         <div className={styles.date}>{date}</div>
       </div>
       <div className={styles.detail}>
-        <div className={styles.name}>ФИО клиента</div>
-        <div className={styles.text}>{text}</div>
+        {flagName}
+        {messages.map((item, index) => <div key={index} className={styles.text}>{item}</div>)}
       </div>
     </div>
   );

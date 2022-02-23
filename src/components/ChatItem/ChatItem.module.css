@@ -9,7 +9,18 @@
   margin-bottom: 3rem;
 }
 
-.item:last-child {
+.item_message {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.item_to {
+  flex-direction: row-reverse;
+  margin-bottom: 4rem;
+}
+
+.item:not(.item_message):last-child {
   margin-bottom: 0;
 }
 
@@ -32,7 +43,15 @@
 }
 
 .detail {
-  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 1rem;
+}
+
+.item_to .detail {
+  margin: 0 1rem 0 0;
+  align-items: flex-end;
 }
 
 .name {
@@ -47,4 +66,17 @@
   padding: 2rem;
   background: #F8F9FB;
   border-radius: 10px;
+  margin: 0 0 1rem 0;
+}
+
+.item_message {
+  margin: 0 7rem 1rem 0;
+}
+
+.item_to .text {
+  margin: 0 0 1rem 7rem;
+}
+
+.text:last-child {
+  margin-bottom: 0;
 }
