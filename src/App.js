@@ -1,54 +1,18 @@
-import Form from './components/Form';
-
-import {
-  registrationFields,
-  authFields,
-  passwordRecoveryFields,
-  formLinks,
-} from './constants';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import PageAuthorization from './components/PageAuthorization';
+import PageRegistration from './components/PageRegistration';
+import PagePasswordRecovery from './components/PagePasswordRecovery';
 
 import './App.css';
-import iconAuth from './images/icon-auth.svg';
-import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <main className="main">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Form
-              title="Авторизация"
-              fields={authFields}
-              textButton="Войти"
-              image={iconAuth}
-              links={formLinks.auth}
-            />
-          }
-        />
-        <Route
-          path="registration"
-          element={
-            <Form
-              title="Регистрация"
-              fields={registrationFields}
-              textButton="Зарегистрироваться"
-              links={formLinks.registration}
-            />
-          }
-        />
-        <Route
-          path="password-recovery"
-          element={
-            <Form
-              title="Восстановление пароля"
-              fields={passwordRecoveryFields}
-              textButton="Восстановить пароль"
-              links={formLinks.registration}
-            />
-          }
-        />
+        <Route path="authorization" element={<PageAuthorization />} />
+        <Route path="registration" element={<PageRegistration />} />
+        <Route path="password-recovery" element={<PagePasswordRecovery />} />
       </Routes>
     </main>
   );
