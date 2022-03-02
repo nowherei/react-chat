@@ -4,12 +4,16 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 import './Field.css';
 
-const Field = ({ type, name, placeholder, icon }) => {
+const Field = ({ type, name, placeholder, icon, value, changeValue }) => {
   const [hidden, setHidden] = useState(true);
 
   const togglePassword = () => {
     setHidden(!hidden);
   };
+
+  const handleInputChange = (event) => {
+    changeValue(event.target.value);
+  }
 
   const showPass = (
     <div className="form__field-show-pass" onClick={togglePassword}>
@@ -30,6 +34,8 @@ const Field = ({ type, name, placeholder, icon }) => {
         className="form__field-input"
         placeholder={placeholder}
         name={name}
+        value={value}
+        onChange={handleInputChange}
       />
       <div className="form__field-icon">
         <Icon name={icon} />
