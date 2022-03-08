@@ -14,7 +14,7 @@ const PageSearch = () => {
       <main className="main">
         <Container>
           <ChatSearch />
-          <ChatList type="chat" />
+          <ChatList />
         </Container>
       </main>
     </>

@@ -9,5 +9,6 @@ export const user = {
 
 export const button = {
   text: 'Настройки',
+  link: 'settings',
   icon: <Icon name="settings" />,
 };

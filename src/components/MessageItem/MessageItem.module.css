@@ -1,16 +1,16 @@
 .item {
-  display: flex;
-  background: #FFFFFF;
-  border-radius: 15px;
-  padding: 5rem 12rem 5rem 5rem;
+  padding: 0;
   color: #000415;
   font-size: 1.8rem;
   line-height: 140%;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 6rem 1fr 6rem;
+  grid-gap: 1rem;
 }
 
 .item:last-child {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .preview {
@@ -34,8 +34,14 @@
 .detail {
   display: flex;
   flex-direction: column;
+}
+
+.item_to .detail {
   align-items: flex-start;
-  margin: 0 0 0 1rem;
+}
+
+.item_from .detail {
+  align-items: flex-end;
 }
 
 .name {

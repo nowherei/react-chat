@@ -102,6 +102,11 @@
   height: 8.5rem;
   margin-top: 3rem;
   padding: 3rem 5.5rem;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  background: linear-gradient(206.57deg, #3246D3 0%, #6476F4 83.33%);
 }
 
 @media (max-width: 575px) { 

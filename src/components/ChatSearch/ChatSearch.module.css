@@ -39,6 +39,10 @@
   cursor: pointer;
 }
 
+.button:hover {
+  background: linear-gradient(206.57deg, #3246D3 0%, #6476F4 83.33%);
+}
+
 .buttonText {
   margin-left: 1.5rem;
 }

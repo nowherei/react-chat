@@ -1,7 +1,7 @@
 import React from 'react';
-import ChatList from '../ChatList';
 import Container from '../Container';
 import Icon from '../Icon';
+import MessageList from '../MessageList';
 
 import styles from './Chat.module.css';
 
@@ -10,7 +10,7 @@ const Chat = () => {
     <Container>
       <div className={styles.wrapper}>
         <div className={styles.chat}>
-          <ChatList type="message" />
+          <MessageList />
         </div>
         <form className={styles.form} action="">
           <div className={styles.field}>
