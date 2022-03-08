@@ -12,6 +12,7 @@ html {
 body {
   background: rgba(166, 166, 166, 0.15);
   font: 400 1.6rem/2.2rem "Montserrat", Helvetica, Arial, sans-serif;
+  color: #000415;
 }
 
 @media (min-width:768px) {
