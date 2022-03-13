@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import Field from '../Field';
 import { Link, useLocation } from 'react-router-dom';
 
 import { formFields } from './constants';
 
-import { UsersContext } from '../../UsersContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { add } from '../../redux/slices/allUsersSlice';
+import { auth } from '../../redux/slices/loginUserSlice';
 
 import './Form.css';
 
@@ -16,9 +18,10 @@ const Form = ({ title, fields, textButton, image, links }) => {
 
   const { pathname } = useLocation();
 
-  const [users, setUsers] = useContext(UsersContext);
-
   const [values, setValues] = useState(defaultValues);
+
+  const allUsers = useSelector((state) => state.allUsers);
+  const dispatch = useDispatch();
 
   const changeValue = (name) => {
     return (value) => {
@@ -30,19 +33,31 @@ const Form = ({ title, fields, textButton, image, links }) => {
     event.preventDefault();
 
     if (pathname === '/registration') {
-      setUsers([...users, values]);
+      const { name, surname, email, password, repeatPassword } = values;
+      if (password !== repeatPassword) {
+        alert('Пароли не совпадают!');
+        return null;
+      }
+
+      if (allUsers.find((item) => item.email === email)) {
+        alert(`Пользователь с email ${email} уже существует!`);
+        return null;
+      }
+
+      dispatch(add({ name, surname, email, password }));
       alert('Вы зарегистрированы!');
       setValues(defaultValues);
     }
 
     if (pathname === '/authorization') {
-      if (
-        users.find(
-          ({ email, password }) =>
-            email === values.email && password === values.password
-        )
-      ) {
+      const currentUser = allUsers.find(
+        ({ email, password }) =>
+          email === values.email && password === values.password
+      )
+      console.log(currentUser);
+      if (currentUser) {
         alert('Добро пожаловать');
+        dispatch(auth(currentUser.id));
         setValues(defaultValues);
       } else {
         alert('Ошибка авторизации');

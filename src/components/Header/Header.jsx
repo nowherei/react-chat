@@ -12,7 +12,7 @@ const Header = ({ user, button }) => {
       <span className={styles.buttonText}>{button.text}</span>
     </Link>
   ) : (
-    <a href="#" className={styles.button}>
+    <a href={() => false} className={styles.button}>
       {button.icon}
       <span className={styles.buttonText}>{button.text}</span>
     </a>
