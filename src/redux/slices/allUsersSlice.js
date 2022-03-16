@@ -1,16 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { users } from '../constants';
 
 export const allUsersSlice = createSlice({
   name: 'allUsers',
-  initialState: [
-    {
-      id: 1,
-      name: 'admin',
-      surname: 'admin',
-      email: 'admin@mail.ru',
-      password: 'admin',
-    },
-  ],
+  initialState: users,
 
   reducers: {
     add: (state, action) => {

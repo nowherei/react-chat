@@ -1,11 +1,16 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { singOut } from '../../redux/slices/loggedInUserSlice';
 import Container from '../Container';
 import Icon from '../Icon';
 
 import styles from './Header.module.css';
 
-const Header = ({ user, button }) => {
+const Header = ({ button }) => {
+  const { image, name } = useSelector((state) => state.loggedInUser);
+  const dispatch = useDispatch();
+
   const headerButton = button.link ? (
     <Link to={button.link ? button.link : '#'} className={styles.button}>
       {button.icon}
@@ -23,15 +28,11 @@ const Header = ({ user, button }) => {
       <Container>
         <div className={styles.headerContainer}>
           <div className={styles.user}>
-            <img
-              className={styles.userImage}
-              src={user.image}
-              alt={user.name}
-            />
-            <span>{user.name}</span>
+            <img className={styles.userImage} src={image} alt={name} />
+            <span>{name}</span>
           </div>
           {headerButton}
-          <button className={styles.exit}>
+          <button className={styles.exit} onClick={() => dispatch(singOut())}>
             <span className={styles.exitText}>Выход</span>
             <Icon name="exit" />
           </button>

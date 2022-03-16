@@ -3,14 +3,14 @@ import Header from '../Header';
 
 import styles from './PageSettings.module.css';
 
-import { user, button, fields } from './constants';
+import { button, fields } from './constants';
 import imageUser from '../../images/user-setting.png';
 import Icon from '../Icon';
 
 const PageSettings = () => {
   return (
     <>
-      <Header user={user} button={button} />
+      <Header button={button} />
       <main className={styles.main}>
         <div className={styles.sidebar}>
           <div className={styles.changeImage}>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Field from '../Field';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { formFields } from './constants';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { add } from '../../redux/slices/allUsersSlice';
-import { auth } from '../../redux/slices/loginUserSlice';
+import { auth } from '../../redux/slices/loggedInUserSlice';
 
 import './Form.css';
 
@@ -16,12 +16,13 @@ const Form = ({ title, fields, textButton, image, links }) => {
     {}
   );
 
-  const { pathname } = useLocation();
-
-  const [values, setValues] = useState(defaultValues);
-
   const allUsers = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
+
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const [values, setValues] = useState(defaultValues);
 
   const changeValue = (name) => {
     return (value) => {
@@ -53,12 +54,10 @@ const Form = ({ title, fields, textButton, image, links }) => {
       const currentUser = allUsers.find(
         ({ email, password }) =>
           email === values.email && password === values.password
-      )
-      console.log(currentUser);
+      );
       if (currentUser) {
-        alert('Добро пожаловать');
-        dispatch(auth(currentUser.id));
-        setValues(defaultValues);
+        dispatch(auth(currentUser));
+        navigate('/chats', { replace: true });
       } else {
         alert('Ошибка авторизации');
       }
