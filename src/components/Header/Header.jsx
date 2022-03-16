@@ -17,10 +17,10 @@ const Header = ({ button }) => {
       <span className={styles.buttonText}>{button.text}</span>
     </Link>
   ) : (
-    <a href={() => false} className={styles.button}>
+    <div className={styles.button}>
       {button.icon}
       <span className={styles.buttonText}>{button.text}</span>
-    </a>
+    </div>
   );
 
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import ChatItem from '../ChatItem';
 
-// import { chats } from './constants';
 import { useSelector } from 'react-redux';
 import styles from './ChatList.module.css';
 

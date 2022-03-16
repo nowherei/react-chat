@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import MessageItem from '../MessageItem';
 
-import { messages } from './constants';
-
 const MessageList = () => {
   const { chatId } = useParams();
   const allChats = useSelector((state) => state.allChats);
