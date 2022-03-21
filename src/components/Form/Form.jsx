@@ -47,7 +47,7 @@ const Form = ({ title, fields, textButton, image, links }) => {
 
       dispatch(add({ name, surname, email, password }));
       alert('Вы зарегистрированы!');
-      setValues(defaultValues);
+      navigate('/authorization');
     }
 
     if (pathname === '/authorization') {

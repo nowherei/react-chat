@@ -19,11 +19,11 @@ const MessageList = () => {
 
   return (
     <>
-      {history.map(({ id, message, time, userId }, index, array) => {
+      {history.map(({ id, message, time, userId }, index) => {
         const data = {message, time};
         data.name = userId === fromUserId ? fromUserName : toUserName;
         data.direction = userId === fromUserId ? 'from' : 'to';
-        if (!index || array[index - 1]['userId'] !== userId) {
+        if (!index || history[index - 1]['userId'] !== userId) {
           data.image = userId === fromUserId ? fromUserImage : toUserImage;
         }
         return <MessageItem key={id} {...data} />;

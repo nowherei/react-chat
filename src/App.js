@@ -13,46 +13,44 @@ import './App.css';
 
 function App() {
   return (
-    <main className="main">
-      <Routes>
-        <Route path="authorization" element={<PageAuthorization />} />
-        <Route path="registration" element={<PageRegistration />} />
-        <Route path="password-recovery" element={<PagePasswordRecovery />} />
-        <Route
-          path="chats"
-          element={
-            <RequireAuth>
-              <PageSearch />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="chats/:chatId"
-          element={
-            <RequireAuth>
-              <PageChat />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="settings"
-          element={
-            <RequireAuth>
-              <PageSettings />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <RequireAuth>
-              <Navigate replace to="/chats" />
-            </RequireAuth>
-          }
-        />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </main>
+    <Routes>
+      <Route path="authorization" element={<PageAuthorization />} />
+      <Route path="registration" element={<PageRegistration />} />
+      <Route path="password-recovery" element={<PagePasswordRecovery />} />
+      <Route
+        path="chats"
+        element={
+          <RequireAuth>
+            <PageSearch />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="chats/:chatId"
+        element={
+          <RequireAuth>
+            <PageChat />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="settings"
+        element={
+          <RequireAuth>
+            <PageSettings />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <RequireAuth>
+            <Navigate replace to="/chats" />
+          </RequireAuth>
+        }
+      />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 

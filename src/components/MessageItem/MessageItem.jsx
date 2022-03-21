@@ -20,7 +20,7 @@ const MessageItem = ({ name, image, message, time, direction }) => {
       <div className={styles.preview}>
         {direction === 'to' ? preview : null}
       </div>
-      <div className={styles.detail}>{message}</div>
+      <div className={styles.detail}><div className={styles.text}>{message}</div></div>
       <div className={styles.preview}>
         {direction === 'from' ? preview : null}
       </div>
