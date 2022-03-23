@@ -5,12 +5,12 @@ import Container from '../Container';
 import ChatSearch from '../ChatSearch';
 import ChatList from '../ChatList';
 
-import { user, button } from './constants';
+import { button } from './constants';
 
 const PageSearch = () => {
   return (
     <>
-      <Header user={user} button={button} />
+      <Header button={button} />
       <main className="main">
         <Container>
           <ChatSearch />

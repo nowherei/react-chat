@@ -1,12 +1,5 @@
 import Icon from '../Icon';
 
-import userImage from '../../images/user-3.png';
-
-export const user = {
-  name: 'Username',
-  image: userImage,
-};
-
 export const button = {
   text: 'Сохранить',
   icon: <Icon name="save" />,

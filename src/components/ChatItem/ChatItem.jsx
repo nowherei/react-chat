@@ -1,27 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { getTime } from '../../functions';
 
 import styles from './ChatItem.module.css';
 
-const ChatItem = ({ name, image, messages, date }) => {
+const ChatItem = ({ id, name, image, message, time }) => {
   const flagName = name ? <div className={styles.name}>{name}</div> : null;
 
   return (
-    <div className={styles.item}>
+    <Link className={styles.item} to={`/chats/${id}`}>
       <div className={styles.preview}>
         <figure className={styles.imageWrapper}>
           <img src={image} alt={name} className={styles.image} />
         </figure>
-        <div className={styles.date}>{date}</div>
+        <div className={styles.date}>{getTime(time)}</div>
       </div>
       <div className={styles.detail}>
         {flagName}
-        {messages.map((item, index) => (
-          <div key={index} className={styles.text}>
-            {item}
-          </div>
-        ))}
+        <div className={styles.text}>{message}</div>
       </div>
-    </div>
+    </Link>
   );
 };
 
