@@ -8,8 +8,12 @@
 .chat {
   background: #fff;
   border-radius: 1.5rem 1.5rem 0 0;
-  overflow-y: auto;
-  padding: 5rem 5rem 0;
+  overflow: hidden;
+}
+
+.simpleBar {
+  max-height: 100%;
+  padding: 5rem 5rem 1rem;
 }
 
 .form {
@@ -69,4 +73,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttonSend:disabled {
+  background: linear-gradient(164.08deg, #eaebed 9.54%, #cccdce 90.23%);
 }

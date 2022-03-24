@@ -1,0 +1,6 @@
+.notAvailable {
+  height: calc(100vh - 10rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}

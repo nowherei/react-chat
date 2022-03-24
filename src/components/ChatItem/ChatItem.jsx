@@ -13,11 +13,11 @@ const ChatItem = ({ id, name, image, message, time }) => {
         <figure className={styles.imageWrapper}>
           <img src={image} alt={name} className={styles.image} />
         </figure>
-        <div className={styles.date}>{getTime(time)}</div>
+        {time ? <div className={styles.date}>{getTime(time)}</div> : null}
       </div>
       <div className={styles.detail}>
         {flagName}
-        <div className={styles.text}>{message}</div>
+        {message ? <div className={styles.text}>{message}</div> : null}
       </div>
     </Link>
   );

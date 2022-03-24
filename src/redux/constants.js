@@ -32,6 +32,7 @@ export const users = [
 export const chats = [
   {
     id: 1,
+    name: 'admin & test',
     userIds: [1, 2],
     history: [
       {
@@ -73,6 +74,7 @@ export const chats = [
   },
   {
     id: 2,
+    name: 'admin & Petr',
     userIds: [1, 3],
     history: [
       {
@@ -111,5 +113,11 @@ export const chats = [
           '1_3 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
       },
     ],
+  },
+  {
+    id: 3,
+    name: 'General chat',
+    userIds: [],
+    history: [],
   },
 ];
