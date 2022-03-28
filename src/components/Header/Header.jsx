@@ -8,6 +8,8 @@ import Icon from '../Icon';
 
 import styles from './Header.module.css';
 
+import userDefault from '../../images/user-default-2.png';
+
 const Header = ({ button }) => {
   const { image, name } = useSelector((state) => state.loggedInUser);
   const dispatch = useDispatch();
@@ -32,12 +34,20 @@ const Header = ({ button }) => {
       <Container>
         <div className={styles.headerContainer}>
           {pathname !== '/chats' ? (
-            <button className={styles.back} onClick={() => navigate(-1)} title="Назад">
+            <button
+              className={styles.back}
+              onClick={() => navigate(-1)}
+              title="Назад"
+            >
               <MdOutlineArrowBackIosNew className="icon" />
             </button>
           ) : null}
           <div className={styles.user}>
-            <img className={styles.userImage} src={image} alt={name} />
+            <img
+              className={styles.userImage}
+              src={image ? image : userDefault}
+              alt={name}
+            />
             <span>{name}</span>
           </div>
           {headerButton}

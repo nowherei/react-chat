@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Header from '../Header';
 import Container from '../Container';
@@ -8,13 +8,14 @@ import ChatList from '../ChatList';
 import { button } from './constants';
 
 const PageSearch = () => {
+  const [search, setSearch] = useState('');
   return (
     <>
       <Header button={button} />
       <main className="main">
         <Container>
-          <ChatSearch />
-          <ChatList />
+          <ChatSearch setSearch={setSearch} />
+          <ChatList search={search} />
         </Container>
       </main>
     </>
