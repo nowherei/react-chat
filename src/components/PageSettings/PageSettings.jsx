@@ -11,6 +11,8 @@ import { change as changeAllUsers } from '../../redux/slices/allUsersSlice';
 import { createPortal } from 'react-dom';
 import Modal from '../Modal';
 
+import userDefault from '../../images/user-default-2.png';
+
 const PageSettings = () => {
   const loggedInUser = useSelector((state) => state.loggedInUser);
   const allUsers = useSelector((state) => state.allUsers);
@@ -103,7 +105,7 @@ const PageSettings = () => {
         <div className={styles.sidebar}>
           <div className={styles.changeImage}>
             <figure className={styles.image}>
-              <img src={user.image} alt="" />
+              <img src={user.image ? user.image : userDefault} alt="" />
             </figure>
             <button
               className={styles.buttonChangePhoto}
