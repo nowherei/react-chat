@@ -9,9 +9,13 @@ export const allUsersSlice = createSlice({
     add: (state, action) => {
       return [...state, { ...action.payload, id: state.length + 1 }];
     },
+    change: (state, action) => {
+      const { id } = action.payload;
+      return state.map((item) => (item.id === id ? action.payload : item));
+    },
   },
 });
 
-export const { add } = allUsersSlice.actions;
+export const { add, change } = allUsersSlice.actions;
 
 export default allUsersSlice.reducer;

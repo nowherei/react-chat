@@ -18,12 +18,12 @@ const Header = ({ button }) => {
   const navigate = useNavigate();
 
   const headerButton = button.link ? (
-    <Link to={button.link ? button.link : '#'} className={styles.button}>
+    <Link to={button.link} className={styles.button}>
       {button.icon}
       <span className={styles.buttonText}>{button.text}</span>
     </Link>
   ) : (
-    <div className={styles.button}>
+    <div className={styles.button} onClick={button.onClick ? button.onClick : null}>
       {button.icon}
       <span className={styles.buttonText}>{button.text}</span>
     </div>
