@@ -71,3 +71,15 @@
     width: 6rem;
   }
 }
+
+.back {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  margin: 0 1rem 0 0;
+  width: 4rem;
+}

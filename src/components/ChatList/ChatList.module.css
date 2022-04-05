@@ -1,3 +1,8 @@
 .list {
   margin: 3rem 0 5rem;
 }
+
+.empty {
+  font-size: 1.8rem;
+  text-align: center;
+}

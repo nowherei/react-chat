@@ -1,7 +1,3 @@
-import imageUser_1 from '../images/user.png';
-import imageUser_2 from '../images/user-2.png';
-import imageUser_3 from '../images/user-3.png';
-
 export const users = [
   {
     id: 1,
@@ -9,7 +5,7 @@ export const users = [
     surname: 'admin',
     email: 'admin@mail.ru',
     password: 'admin',
-    image: imageUser_1,
+    image: 'https://images.generated.photos/2jWLSY7gAiFiG2KImvc7I0afHIsscSUqNbjGNT0EpSM/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTc1MTYxLmpwZw.jpg',
   },
   {
     id: 2,
@@ -17,7 +13,7 @@ export const users = [
     surname: 'test',
     email: 'test@test.test',
     password: 'test',
-    image: imageUser_2,
+    image: 'https://images.generated.photos/PqG7pD-M2iGfE-45c8rd7994LSNnuBkdKoqU_899OBA/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTY2NDU2LmpwZw.jpg',
   },
   {
     id: 3,
@@ -25,13 +21,14 @@ export const users = [
     surname: 'Petrov',
     email: 'petr@mail.ru',
     password: '123',
-    image: imageUser_3,
+    image: 'https://images.generated.photos/NSPTc-NnlMItqA1oEObXZ5k1uVnfbqw2GkCCZma4g9E/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92Ml8w/NjIzODk3LmpwZw.jpg',
   },
 ];
 
 export const chats = [
   {
     id: 1,
+    name: 'admin & test',
     userIds: [1, 2],
     history: [
       {
@@ -73,6 +70,7 @@ export const chats = [
   },
   {
     id: 2,
+    name: 'admin & Petr',
     userIds: [1, 3],
     history: [
       {
@@ -111,5 +109,11 @@ export const chats = [
           '1_3 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
       },
     ],
+  },
+  {
+    id: 3,
+    name: 'General chat',
+    userIds: [],
+    history: [],
   },
 ];

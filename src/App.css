@@ -3,8 +3,8 @@
 html {
   font-size: 50%;
   box-sizing: border-box;
-  min-width: 100vw;
-  min-height: 100vh;
+  /* min-width: 100vw;
+  min-height: 100vh; */
 }
 
 *, *::before, *::after {
@@ -15,8 +15,8 @@ body {
   background: rgba(166, 166, 166, 0.15);
   font: 400 1.6rem/2.2rem "Montserrat", Helvetica, Arial, sans-serif;
   color: #000415;
-  min-width: 100vw;
-  min-height: 100vh;
+  /* min-width: 100vw;
+  min-height: 100vh; */
 }
 
 @media (min-width:768px) {

@@ -4,6 +4,8 @@ import { getTime } from '../../functions';
 
 import styles from './ChatItem.module.css';
 
+import userDefault from '../../images/user-default-2.png';
+
 const ChatItem = ({ id, name, image, message, time }) => {
   const flagName = name ? <div className={styles.name}>{name}</div> : null;
 
@@ -11,13 +13,13 @@ const ChatItem = ({ id, name, image, message, time }) => {
     <Link className={styles.item} to={`/chats/${id}`}>
       <div className={styles.preview}>
         <figure className={styles.imageWrapper}>
-          <img src={image} alt={name} className={styles.image} />
+          <img src={image ? image : userDefault} alt={name} className={styles.image} />
         </figure>
-        <div className={styles.date}>{getTime(time)}</div>
+        {time ? <div className={styles.date}>{getTime(time)}</div> : null}
       </div>
       <div className={styles.detail}>
         {flagName}
-        <div className={styles.text}>{message}</div>
+        {message ? <div className={styles.text}>{message}</div> : null}
       </div>
     </Link>
   );
