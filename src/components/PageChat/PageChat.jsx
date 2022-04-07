@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Chat from '../Chat';
 import ChatNotAvailable from '../ChatNotAvailable';
 import Header from '../Header';

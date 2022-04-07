@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../Form';
 
-import { fields, links } from './constants';
+import { fields, links, validate } from './constants';
 
 const PageRegistration = () => {
   return (
@@ -10,6 +10,7 @@ const PageRegistration = () => {
       fields={fields}
       textButton="Зарегистрироваться"
       links={links}
+      validate={validate}
     />
   );
 };

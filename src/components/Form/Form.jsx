@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import Field from '../Field';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-
-import { formFields } from './constants';
-
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Formik, Form as FormikForm } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { add } from '../../redux/slices/allUsersSlice';
 import { auth } from '../../redux/slices/loggedInUserSlice';
 
+import FieldList from './FieldList';
+
+import LinkList from './LinkList';
+
 import './Form.css';
 
-const Form = ({ title, fields, textButton, image, links }) => {
+const Form = ({ title, fields, textButton, image, links, validate }) => {
   const defaultValues = fields.reduce(
     (acc, item) => ({ ...acc, [item]: '' }),
     {}
@@ -22,31 +23,18 @@ const Form = ({ title, fields, textButton, image, links }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const [values, setValues] = useState(defaultValues);
+  const [formErrors, setFormErrors] = useState([]);
 
-  const changeValue = (name) => {
-    return (value) => {
-      setValues({ ...values, [name]: value });
-    };
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  const handleSubmit = (values) => {
     if (pathname === '/registration') {
-      const { name, surname, email, password, repeatPassword } = values;
-      if (password !== repeatPassword) {
-        alert('Пароли не совпадают!');
-        return null;
-      }
+      const { name, surname, email, password } = values;
 
       if (allUsers.find((item) => item.email === email)) {
-        alert(`Пользователь с email ${email} уже существует!`);
+        setFormErrors([`Пользователь с email ${email} уже существует!`]);
         return null;
       }
-
       dispatch(add({ name, surname, email, password }));
-      alert('Вы зарегистрированы!');
+      alert('Вы зарегистрированы!'); //todo сделать через popup
       navigate('/authorization');
     }
 
@@ -59,37 +47,12 @@ const Form = ({ title, fields, textButton, image, links }) => {
         dispatch(auth(currentUser));
         navigate('/chats', { replace: true });
       } else {
-        alert('Ошибка авторизации');
+        setFormErrors(['Email или пароль неверные, попробуйте еще раз']);
       }
     }
   };
 
-  const listFields = fields.map((item, index) => {
-    return (
-      <Field
-        key={index}
-        {...formFields[item]}
-        value={values[item]}
-        changeValue={changeValue(item)}
-      />
-    );
-  });
-
   const header = image ? <img src={image} alt={title} /> : title;
-
-  const listLinks = links ? (
-    <div className="form__links">
-      {links.map(({ id, href, text, type }) => {
-        return (
-          <Link key={id} to={href} className={`form__links-${type}`}>
-            {text}
-          </Link>
-        );
-      })}
-    </div>
-  ) : (
-    ''
-  );
 
   return (
     <div className="form">
@@ -97,11 +60,26 @@ const Form = ({ title, fields, textButton, image, links }) => {
         <div className="form__inner">
           <div className="form__header">{header}</div>
           <div className="form__body">
-            <form action="#" onSubmit={handleSubmit}>
-              {listFields}
-              <button className="form__button">{textButton}</button>
-              {listLinks}
-            </form>
+            <Formik
+              initialValues={defaultValues}
+              onSubmit={handleSubmit}
+              validate={validate}
+            >
+              {() => (
+                <FormikForm noValidate>
+                  {<FieldList fields={fields} />}
+                  {formErrors.length
+                    ? formErrors.map((item) => (
+                        <div className="form__error">{item}</div>
+                      ))
+                    : null}
+                  <button type="submit" className="form__button">
+                    {textButton}
+                  </button>
+                </FormikForm>
+              )}
+            </Formik>
+            <LinkList links={links} />
           </div>
         </div>
       </div>
