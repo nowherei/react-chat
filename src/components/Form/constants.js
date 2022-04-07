@@ -25,7 +25,7 @@ export const formFields = {
   },
   repeatPassword: {
     type: 'password',
-    name: 'repeat_password',
+    name: 'repeatPassword',
     placeholder: 'Повторите пароль',
     icon: 'pass',
   },

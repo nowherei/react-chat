@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import MessageItem from '../MessageItem';
-import PageNotFound from '../PageNotFound';
 
 import userDefault from '../../images/user-default-2.png';
 

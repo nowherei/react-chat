@@ -62,3 +62,13 @@
 .form__links-blue {
   color: #6476F4;
 }
+
+.form__field-error, 
+.form__error {
+  color: tomato;
+  margin-top: 0.5rem;
+}
+
+.form__error {
+  margin-top: 1rem;
+}

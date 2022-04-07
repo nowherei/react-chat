@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../Form';
 
-import { fields, links } from './constants';
+import { fields, links, validate } from './constants';
 import iconAuth from '../../images/icon-auth.svg';
 
 const PageAuthorization = () => {
@@ -12,6 +12,7 @@ const PageAuthorization = () => {
       textButton="Войти"
       image={iconAuth}
       links={links}
+      validate={validate}
     />
   );
 };
